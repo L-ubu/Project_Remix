@@ -1,0 +1,85 @@
+---
+description: "QA Report Format -- used when producing QA reports, fix lists, Confluence checklists, or Jira ticket content. Apply when running QA skills or when the user asks for a QA run, QA report, or fix list."
+alwaysApply: false
+---
+
+# QA Report Format (iO)
+
+Use this structure whenever you produce QA artifacts for iO (report, fix list, Confluence page, Jira tickets).
+
+## Severity levels
+
+| Level | Label | When to use |
+|-------|--------|-------------|
+| **Critical** | `P0` / Critical | Blocking: security, data loss, broken main flow, legal/a11y blocker |
+| **High** | `P1` / High | Major: wrong behaviour, broken subflow, serious UX or API contract break |
+| **Medium** | `P2` / Medium | Notable: inconsistency, missing edge handling, minor UX/API issue |
+| **Low** | `P3` / Low | Nice-to-fix: polish, minor copy, small improvement |
+
+## Single finding format
+
+For each finding use:
+
+- **ID:** Short unique id (e.g. `FE-01`, `API-02`, `E2E-03`).
+- **Title:** One line, imperative (e.g. "Fix login button disabled state on error").
+- **Area:** One of `Frontend` | `Backend` | `E2E` | `API` | `Security` | `Other`.
+- **Severity:** P0–P3 (or Critical/High/Medium/Low).
+- **Steps:** How to reproduce (numbered list or "N/A" for code-level only).
+- **Expected vs actual:** One line each.
+- **Suggestion:** What to change (file/component/endpoint + concrete fix).
+- **Evidence:** Link to video, screenshot path, or "See recording: …".
+
+## QA Report (main artifact)
+
+Structure:
+
+```markdown
+# QA Report — [Project name] — [Date/branch]
+
+## Summary
+- Total findings: N (P0: x, P1: x, P2: x, P3: x)
+- Areas: Frontend, Backend, E2E (as applicable)
+
+## Findings
+
+### [Area] — [Finding title] [Px]
+- **ID:** …
+- **Steps:** …
+- **Expected / Actual:** …
+- **Suggestion:** …
+- **Evidence:** …
+
+(Repeat per finding.)
+
+## Videos / recordings
+- [Title]: path or URL
+```
+
+## Fix list (for PM → Jira)
+
+Table format (PM can copy into Jira or you create tickets via MCP):
+
+| ID | Title | Severity | Area | Suggested ticket summary |
+|----|--------|----------|------|--------------------------|
+| FE-01 | Fix login button disabled state | P1 | Frontend | Login button stays disabled after API error; re-enable and show message |
+| … | … | … | … | … |
+
+- One row per finding.
+- "Suggested ticket summary" = one line for Jira title or description.
+
+## Confluence QA checklist
+
+- Same findings as the report, rendered as a checklist page:
+  - **QA Run:** [project] — [date]
+  - **Scope:** Frontend / Backend / E2E (what was run)
+  - For each finding: `- [ ] [ID] [Title] (Px) — [one-line suggestion]`
+  - Section for "Videos / demos" with links.
+
+## Jira tickets (when creating via MCP)
+
+- **Summary:** Use "Suggested ticket summary" from fix list (or the finding title).
+- **Description:** Include steps, expected/actual, suggestion, link to video if any.
+- **Labels/components:** Use project conventions; add e.g. `qa`, `qa-2026-03` if agreed.
+- **Issue type:** Bug or Task as per project.
+
+Keep wording clear and actionable so PM and devs can use it without extra explanation.
