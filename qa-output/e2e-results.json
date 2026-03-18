@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-03-18T14:36:16.779Z",
+  "results": {
+    "Flow 1: View tasks and navigate": "PASS",
+    "Flow 2: Create a new task": "PASS",
+    "Flow 3: Edit a task": "PASS",
+    "Flow 4: Complete a task (XP flow)": "PASS",
+    "Flow 5: Delete a task": "PASS",
+    "Flow 6: Search and filter": "PASS",
+    "Flow 7: Dark mode toggle": "PASS",
+    "Flow 8: Quick actions (hover)": "PASS"
+  },
+  "findings": [
+    {
+      "id": "E2E-19",
+      "title": "Task count did not decrease after deletion",
+      "severity": "P1",
+      "steps": "1. Note task count\n2. Delete a task\n3. Check task count",
+      "expected": "Task count should decrease (was 9)",
+      "actual": "Task count is 9",
+      "suggestion": "Check deleteTask in db.server",
+      "evidence": "flow5_after_delete.png"
+    }
+  ],
+  "screenshots": [
+    "/opt/cursor/artifacts/flow1_error.png",
+    "/opt/cursor/artifacts/flow1_initial_load.png",
+    "/opt/cursor/artifacts/flow1_kanban_view.png",
+    "/opt/cursor/artifacts/flow1_task_list.png",
+    "/opt/cursor/artifacts/flow2_after_create.png",
+    "/opt/cursor/artifacts/flow2_create_modal.png",
+    "/opt/cursor/artifacts/flow2_form_filled.png",
+    "/opt/cursor/artifacts/flow2_task_in_list.png",
+    "/opt/cursor/artifacts/flow3_after_save.png",
+    "/opt/cursor/artifacts/flow3_edit_modal.png",
+    "/opt/cursor/artifacts/flow3_form_edited.png",
+    "/opt/cursor/artifacts/flow4_after_complete.png",
+    "/opt/cursor/artifacts/flow4_before_complete.png",
+    "/opt/cursor/artifacts/flow4_task_detail.png",
+    "/opt/cursor/artifacts/flow4_xp_after.png",
+    "/opt/cursor/artifacts/flow5_after_delete.png",
+    "/opt/cursor/artifacts/flow5_before_delete.png",
+    "/opt/cursor/artifacts/flow6_category_filter.png",
+    "/opt/cursor/artifacts/flow6_filters_cleared.png",
+    "/opt/cursor/artifacts/flow6_search_results.png",
+    "/opt/cursor/artifacts/flow6_status_filter.png",
+    "/opt/cursor/artifacts/flow7_back_to_light.png",
+    "/opt/cursor/artifacts/flow7_dark_mode.png",
+    "/opt/cursor/artifacts/flow7_light_mode.png",
+    "/opt/cursor/artifacts/flow8_after_start.png",
+    "/opt/cursor/artifacts/flow8_hover_actions.png"
+  ]
+}
