@@ -1,12 +1,12 @@
 # TaskQuest Pro - Gamified Task Management System
 
-![Screenshot](assets/screenshot.png)
-
 A modern, full-stack task management application built with Remix that enhances productivity through gamification principles. The application features experience points, achievement systems, streak tracking, and integrated focus tools to create an engaging productivity environment.
 
 [![Remix](https://img.shields.io/badge/Remix-000000?style=for-the-badge&logo=remix&logoColor=white)](https://remix.run/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+
+![Screenshot](assets/screenshot.png)
 
 ## Table of Contents
 
