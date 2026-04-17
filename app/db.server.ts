@@ -1,8 +1,8 @@
 import Database from "better-sqlite3";
 import { join } from "path";
 
-// Create database connection
-const db = new Database(join(process.cwd(), "tasks.db"));
+const isVercel = !!process.env.VERCEL;
+const db = new Database(isVercel ? ":memory:" : join(process.cwd(), "tasks.db"));
 
 // Enable foreign keys
 db.pragma("foreign_keys = ON");
